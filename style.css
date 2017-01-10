@@ -1,0 +1,192 @@
+* {
+  padding: 0;
+  margin:0;
+  font-family: Georgia;
+}
+
+div.navigation ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+div.navigation li {
+  float: left;
+}
+
+div.navigation li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+}
+
+div.navigation h1 {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+div.navigation li.selected a {
+  color: gray;
+}
+
+div.navigation li a:hover {
+  color: blue;
+}
+
+div.exercisms li a:hover {
+  color: blue;
+}
+
+div.exercisms h2{
+margin-top: 5px;
+}
+
+div.exercisms ul{
+margin-top: 5px;
+}
+
+div.exercisms {
+  padding: 10px;
+}
+
+div.resume {
+  width: 80%;
+  margin-left: 75px;
+}
+
+div.resume h1 {
+  font-size: 16px;
+  padding: 2px;
+  background-color: DarkGray;
+  padding-left: 10px;
+  margin-bottom: 2px;
+}
+
+div.resume p {
+  padding-left: 14px;
+  font-size: 14px;
+  font-weight: normal;
+  list-style-type: circle;
+  margin-bottom: 2px;
+}
+
+div.contact h1{
+  font-size: 18px;
+  padding: 2px;
+  background-color: white;
+  text-align: left;
+  padding-top: 20px;
+  margin-bottom: 2px;
+}
+
+div.contact {
+  padding: 10px;
+}
+
+div.contact p {
+  font-size: 14px;
+  background-color: white;
+  text-align: left;
+}
+
+div.workedu p {
+  font-size: 14px;
+  background-color: white;
+}
+
+div.workedu h2 {
+  padding-left: 10px;
+  font-size: 14px;
+  background-color: white;
+  margin-bottom: 2px;
+}
+
+div.workedu h3 {
+  padding-left: 14px;
+  font-size: 14px;
+  background-color: white;
+  font-weight: normal;
+  margin-bottom: 2px;
+}
+
+div.workedu ul {
+  padding-left: 30px;
+  font-size: 14px;
+  font-weight: normal;
+  list-style-type: circle;
+  margin-bottom: 2px;
+}
+
+div.workedu li {
+  margin-bottom: 2px;
+}
+
+div.workdate {
+  margin-bottom: 2px;
+}
+
+div.workdate h3 {
+  display: inline;
+}
+
+div.workdate h2 {
+  display: inline;
+  margin-right: 30px;
+}
+
+div.about p {
+  margin: 50px;
+}
+
+div.exercisms a {
+  display: block;
+  color: black;
+  padding: 5px 16px;
+  text-decoration: none;
+}
+
+.homepic {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  background: url("https://i.ytimg.com/vi/dhzsOoCee8A/maxresdefault.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+#workout_form {
+  margin: 20px;
+  display: inline-block;
+  float: left;
+}
+
+label {
+  clear: left;
+  float: left;
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+  padding-right: 10px;
+}
+
+input {
+  padding-left: 100px;
+}
+
+div.submit_button {
+  text-align: center;
+  padding: 10px;
+}
+table {
+  margin-top: 250px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+
+
+
