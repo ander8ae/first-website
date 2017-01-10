@@ -6,34 +6,75 @@
   </head>
   <body>
     <div class="navigation">
-    <h1>Eric's Portfolio</h1>
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./javascript.html">JavaScript</a></li>
-        <li><a href="./resume.html">Resume</a></li>
-        <li><a href="./about.html">About Me</a></li>
-        <li class="selected"><a href="./workout_log.html">Workout Log</a></li>
-      </ul>
-  </div>
+      <h1>Eric's Portfolio</h1>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./javascript.html">JavaScript</a></li>
+          <li><a href="./resume.html">Resume</a></li>
+          <li><a href="./about.html">About Me</a></li>
+          <li class="selected"><a href="./workout_log.html">Workout Log</a></li>
+        </ul>
+    </div>
   <script>
-    function inputToTable(){
+    var workoutLog = JSON.parse(localStorage.getItem("workoutLog"));
+    if (workoutLog === null) {
+      workoutLog = [];
+    }
+    window.onload = function() {
+        var myWorkoutTable = document.getElementById("workoutTable");
+        for(var i = 0; i < workoutLog.length; i++) {
+        var workoutRow = myWorkoutTable.insertRow(1+i);
+        var workoutDateCell = workoutRow.insertCell(0);
+        var workoutExerciseCell = workoutRow.insertCell(1);
+        var workoutSetsCell = workoutRow.insertCell(2);
+        var workoutRepsCell = workoutRow.insertCell(3);
+        var workoutNotesCell = workoutRow.insertCell(4);
+        var newDate = document.createTextNode(workoutLog[i].date);
+        workoutDateCell.appendChild(newDate);
+        var newExercise = document.createTextNode(workoutLog[i].exercise);
+        workoutExerciseCell.appendChild(newExercise);
+        var newSets = document.createTextNode(workoutLog[i].numberSets);
+        workoutSetsCell.appendChild(newSets);
+        var newReps = document.createTextNode(workoutLog[i].numberReps);
+        workoutRepsCell.appendChild(newReps);
+        var newNotes = document.createTextNode(workoutLog[i].notes);
+        workoutNotesCell.appendChild(newNotes);
+      }
+    }
+    // var workoutLog = JSON.parse(localStorage.getItem("workoutLog"));
+    // var dates = [];
+    // var exercise = [];
+    // var sets = [];
+    // var reps = [];
+    // var notes = [];
+    function inputToLog(){
       var workoutRecord = {};
-      workoutRecord.month = document.getElementById("Month").value;
-      workoutRecord.day = document.getElementById("Day").value;
-      workoutRecord.year = document.getElementById("Year").value;
+      workoutRecord.date = document.getElementById("Month").value + " " + document.getElementById("Day").value + ", " + document.getElementById("Year").value;
       workoutRecord.exercise = document.getElementById("exercise").value;
       workoutRecord.numberSets = document.getElementById("numberSets").value;
       workoutRecord.numberReps = document.getElementById("numberReps").value;
       workoutRecord.notes = document.getElementById("notes").value;
-      localStorage.setItem("workoutRecord", JSON.stringify(workoutRecord))
-    }
-    </script>
-  <script>
-    window.onload = function(){
-      var workoutRecord = JSON.parse(localStorage.getItem("workoutRecord"));
-      var workoutRowMonth = document.createTextNode(workoutRecord['month']);
-
-      document.getElementById('testData1').appendChild(workoutRowMonth);
+      workoutLog.push(workoutRecord);
+      localStorage.setItem("workoutLog", JSON.stringify(workoutLog));
+      var myWorkoutTable = document.getElementById("workoutTable");
+      var workoutRow = myWorkoutTable.insertRow(workoutLog.length);
+      var workoutDateCell = workoutRow.insertCell(0);
+      var workoutExerciseCell = workoutRow.insertCell(1);
+      var workoutSetsCell = workoutRow.insertCell(2);
+      var workoutRepsCell = workoutRow.insertCell(3);
+      var workoutNotesCell = workoutRow.insertCell(4);
+      var newDate = document.createTextNode(workoutRecord.date);
+      workoutDateCell.appendChild(newDate);
+      var newExercise = document.createTextNode(workoutRecord.exercise);
+      workoutExerciseCell.appendChild(newExercise);
+      var newSets = document.createTextNode(workoutRecord.numberSets);
+      workoutSetsCell.appendChild(newSets);
+      var newReps = document.createTextNode(workoutRecord.numberReps);
+      workoutRepsCell.appendChild(newReps);
+      var newNotes = document.createTextNode(workoutRecord.notes);
+      workoutNotesCell.appendChild(newNotes);
+        // document.createTextNode(workoutLog[i].date);
+        // document.getElementById('testData1').appendChild(workoutRowDate);
     }
     </script>
     <form id="workout_form">
@@ -93,11 +134,11 @@
       <label>Reps: </label><input type="text" id="numberReps" name="numberReps"><br>
       <label>Notes: </label><input type="text" id="notes" name="notes"><br> 
       <div class="submit_button">     
-        <input type="button" onclick="inputToTable();" value="Submit">
+        <input type="button" onclick="inputToLog();" value="Submit">
       </div>
     </form>
-    <div class="workout_table">
-      <table>
+    <div>
+      <table id="workoutTable">
         <tr>
           <th>Date</th>
           <th>Exercise</th>
